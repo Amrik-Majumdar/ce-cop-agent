@@ -1,16 +1,16 @@
 # CE Cop Agent
 
-CE Cop Agent is a public-safe continuing education compliance project. The repository contains a static product interface, policy documents, launch pages, and documentation for a workflow that tracks requirements, reminders, and completion records.
+CE Cop Agent is a continuing education compliance project built around a practical workflow: track requirements, organize reminders, and keep completion records easier to inspect. The repository contains a polished static interface, policy documents, launch pages, and supporting documentation for the product flow.
 
-The public repository intentionally excludes customer records, payment artifacts, private inbox data, credentials, and real operational configuration.
+The public repository is prepared for review without exposing customer records, payment artifacts, private inbox data, credentials, or real operational configuration.
 
 ## What This Project Shows
 
-- Static web interface for a compliance-tracking concept
+- Static web interface for a compliance-tracking product concept
 - Public documentation for privacy, terms, security, and pilot flow
 - Structured pages for launch and quick links
 - Clear separation between public presentation and private user data
-- Repository hygiene for a project that could otherwise contain sensitive records
+- Repository hygiene for a project category that can involve sensitive records
 
 ## Repository Structure
 
@@ -32,7 +32,7 @@ The public repository intentionally excludes customer records, payment artifacts
 
 ## Technical Approach
 
-The public version is organized around a static front end and supporting documentation. This keeps the repository reviewable while avoiding the risk of exposing private compliance records, payment details, customer information, or account configuration.
+The public version is organized around a static front end and supporting documentation. This keeps the repository reviewable while protecting private compliance records, payment details, customer information, and account configuration.
 
 The project is useful as a portfolio example because it shows more than a landing page. It includes the surrounding documents and repository boundaries needed for a workflow that handles sensitive administrative information.
 
