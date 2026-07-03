@@ -1,12 +1,12 @@
 # CE Cop Agent
 
-CE Cop Agent is a continuing education compliance project built around a practical workflow: track requirements, organize reminders, and keep completion records easier to inspect. The repository contains a polished static interface, policy documents, launch pages, and supporting documentation for the product flow.
+CE Cop Agent is a real estate lead-response project built around a practical workflow: respond quickly, qualify inbound buyer and seller inquiries, and hand off useful lead context for human follow-up. The repository contains a polished static interface, policy documents, launch pages, and supporting documentation for the product flow.
 
 The public repository is prepared for review without exposing customer records, payment artifacts, private inbox data, credentials, or real operational configuration.
 
 ## What This Project Shows
 
-- Static web interface for a compliance-tracking product concept
+- Static web interface for a lead-response product concept
 - Public documentation for privacy, terms, security, and pilot flow
 - Structured pages for launch and quick links
 - Clear separation between public presentation and private user data
@@ -34,7 +34,7 @@ The public repository is prepared for review without exposing customer records, 
 
 The public version is organized around a static front end and supporting documentation. This keeps the repository reviewable while protecting private compliance records, payment details, customer information, and account configuration.
 
-The project is useful as a portfolio example because it shows more than a landing page. It includes the surrounding documents and repository boundaries needed for a workflow that handles sensitive administrative information.
+The project is useful as a portfolio example because it shows more than a landing page. It includes the surrounding documents and repository boundaries needed for a workflow that handles customer inquiries, routing, and follow-up.
 
 ## Local Setup
 
@@ -57,21 +57,28 @@ This repository should not include:
 - Real customer data
 - Payment QR codes or payment account details
 - Private inbox exports
-- License records tied to real users
+- Lead records tied to real people
 - API keys or account credentials
 - Local `.env` files
 
 Only `.env.example` should be committed.
 
+## Legal and Safety Notes
+
+- [Privacy Policy](PRIVACY.md): public-safe data handling expectations.
+- [Terms Of Use](TERMS.md): prototype terms and user responsibilities.
+- [Security Policy](SECURITY.md): private reporting path for security issues.
+- [Disclaimer](DISCLAIMER.md): not legal, brokerage, or professional compliance advice.
+
 ## Limitations
 
 - The repository does not include a live backend.
 - The public pages demonstrate structure and workflow, not an active production service.
-- Reminder accuracy would depend on verified user-provided records in a private deployment.
+- Lead routing and response quality would depend on verified workflow configuration in a private deployment.
 
 ## Future Improvements
 
-- Add a small demo dataset with fake records.
+- Add a small demo dataset with fake lead records.
 - Add screenshots showing the page flow.
 - Document a sample backend design without exposing real customer data.
-- Add validation notes for reminder scheduling and record import.
+- Add validation notes for lead capture, qualification, routing, and handoff.

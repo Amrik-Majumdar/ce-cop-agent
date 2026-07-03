@@ -1,53 +1,42 @@
 # Privacy Policy
 
-Last updated: June 2026
+Last updated: July 2026
 
-CE-Cop Agent is a lead-response assistant for real estate teams. This policy explains the types of information the product may collect during pilots and how that information is intended to be used.
+CE Cop Agent is a real estate lead-response workflow project. It is intended to help organize inbound inquiries, qualification questions, routing, and follow-up context for real estate teams.
 
-## Information We May Collect
+This policy describes the public repository and intended product direction. It is not a substitute for a deployment-specific privacy policy if the project is hosted, connected to accounts, or used with real users.
 
-CE-Cop Agent may collect:
+## Information A Deployment May Collect
+
+A real deployment may collect:
 
 - business contact information, such as name, email address, phone number, company, and role
 - lead details submitted through forms, messages, or pilot workflows
 - buyer or seller intent, timeline, location preferences, and preferred follow-up method
 - operational notes needed to route a lead to the correct team member
-- payment or billing information, when applicable, through third-party payment processors
-
-## How We Use Information
-
-Information is used to:
-
-- respond to real estate inquiries quickly
-- qualify buyer and seller intent
-- route leads to the appropriate real estate team or contact
-- provide support, onboarding, and pilot communication
-- improve the product and user experience
-- maintain billing and account records
+- reminder or follow-up preferences
+- operational logs needed to maintain the service
 
 ## Data Minimization
 
-CE-Cop Agent is intended for ordinary real estate lead-response workflows. Users should not submit sensitive financial records, medical information, government ID numbers, or other unnecessary sensitive data.
+CE Cop Agent should collect only the information needed for lead response, qualification, routing, and follow-up. Users should not submit unrelated sensitive data such as medical records, government ID numbers, detailed financial records, or private credentials.
+
+## Public Repository
+
+This public repository should not contain:
+
+- real user records
+- real customer or lead records
+- payment details
+- inbox exports
+- API keys
+- private `.env` files
+- production database exports
 
 ## Sharing
 
-We do not sell lead data. Information may be shared only when needed to operate the service, support a pilot customer, comply with law, or route a lead to the real estate team that requested the workflow.
+The project should not sell lead data. In a real deployment, information should be shared only as needed to operate the service, support users, comply with law, or route a lead to the real estate team that requested the workflow.
 
-## Security
+## Contact
 
-Reasonable technical and organizational safeguards are used to protect information. No internet-connected system can be guaranteed to be completely secure, so pilot customers should use the service only for appropriate lead-response data.
-
-## Your Choices
-
-You may request to:
-
-- access information associated with you
-- correct inaccurate information
-- delete information where legally and operationally appropriate
-- ask questions about data handling
-
-Contact: webnestam@gmail.com
-
-## Changes
-
-This policy may be updated as the product develops. Updates will be posted in this file.
+Questions about this public repository can be directed to: majumdar.amrik@gmail.com

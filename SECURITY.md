@@ -1,28 +1,26 @@
-# Security
+# Security Policy
 
-CE-Cop Agent is being built for real estate lead-response workflows. Security decisions should match that use case: collect only what is needed, protect business and lead contact details, and avoid unnecessary sensitive data.
+Last updated: July 2026
+
+CE Cop Agent is a real estate lead-response workflow project. Security concerns should be reported privately, especially if they involve credentials, private lead records, contact details, routing rules, user data, or production configuration.
 
 ## Reporting A Security Issue
 
 Please report security concerns privately by email:
 
-**webnestam@gmail.com**
+**majumdar.amrik@gmail.com**
 
 Include:
 
 - a summary of the issue
 - affected URL or file, if applicable
 - steps to reproduce
-- any screenshots or logs that help explain the concern
+- screenshots or logs if they do not expose private data
 
-## Data Handling Principles
+## Public-Safe Rules
 
-- Collect the minimum lead information needed for follow-up.
-- Avoid storing sensitive financial, medical, government ID, or unrelated personal data.
-- Limit access to customer and lead information.
-- Use reputable third-party services for payment and infrastructure where applicable.
-- Review workflows before using them in a live brokerage environment.
-
-## Scope
-
-This repository currently hosts the public landing page and product materials. If a production backend is added, security documentation should be expanded to cover authentication, storage, logging, vendor access, and incident response.
+- Do not commit real customer, lead, or inbox records.
+- Do not commit API keys, tokens, or `.env` files.
+- Keep payment details and production configuration out of the repository.
+- Use `.env.example` only for placeholder values.
+- Review any future backend before handling real lead records.
