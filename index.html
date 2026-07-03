@@ -1,0 +1,2508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CE Compliance Agent | CE Tracking for Appraisers & Inspectors</title>
+  <meta name="description" content="CE Compliance Agent helps real-estate appraisers and home inspectors track CE credits, avoid renewal fines, find approved courses, and generate compliance reports." />
+  <meta property="og:title" content="CE Compliance Agent" />
+  <meta property="og:description" content="Track CE credits, avoid renewal fines, and stay ready for audits with one simple compliance workspace." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="shortcut icon" type="image/png" href="logo.png" />
+  <link rel="apple-touch-icon" href="logo.png" />
+  <style>
+    /* ============================================================
+       CE Compliance Agent - Single File Landing Page
+       Palette: #F9FAFB, #121212, #5E81F4, #F0B90B, #2D7D46
+       ============================================================ */
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #F9FAFB;
+      --bg-rgb: 249, 250, 251;
+      --surface: #FFFFFF;
+      --surface-2: #F1F5F9;
+      --text: #121212;
+      --muted: #526071;
+      --soft: #7B8794;
+      --border: #D9E2EC;
+      --border-strong: #C5D1DD;
+      --accent: #5E81F4;
+      --accent-dark: #3E63D5;
+      --gold: #F0B90B;
+      --gold-soft: #FFF5D2;
+      --green: #2D7D46;
+      --green-soft: #E5F4EA;
+      --danger: #B42318;
+      --danger-soft: #FFE8E4;
+      --nav: rgba(249, 250, 251, 0.88);
+      --shadow-sm: 0 1px 2px rgba(18, 18, 18, 0.06);
+      --shadow-md: 0 10px 30px rgba(18, 18, 18, 0.10);
+      --shadow-lg: 0 24px 70px rgba(18, 18, 18, 0.14);
+      --radius: 10px;
+      --radius-lg: 18px;
+      --container: 1180px;
+      --font: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-display: Poppins, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color-scheme: light;
+    }
+
+    body.light {
+      --bg: #F9FAFB;
+      --bg-rgb: 249, 250, 251;
+      --surface: #FFFFFF;
+      --surface-2: #F1F5F9;
+      --text: #121212;
+      --muted: #526071;
+      --soft: #7B8794;
+      --border: #D9E2EC;
+      --border-strong: #C5D1DD;
+      --accent: #5E81F4;
+      --accent-dark: #3E63D5;
+      --gold: #F0B90B;
+      --gold-soft: #FFF5D2;
+      --green: #2D7D46;
+      --green-soft: #E5F4EA;
+      --danger: #B42318;
+      --danger-soft: #FFE8E4;
+      --nav: rgba(249, 250, 251, 0.88);
+      --shadow-sm: 0 1px 2px rgba(18, 18, 18, 0.06);
+      --shadow-md: 0 10px 30px rgba(18, 18, 18, 0.10);
+      --shadow-lg: 0 24px 70px rgba(18, 18, 18, 0.14);
+      color-scheme: light;
+    }
+
+    body.dark {
+      --bg: #121212;
+      --bg-rgb: 18, 18, 18;
+      --surface: #1B263B;
+      --surface-2: #0D1B2A;
+      --text: #F9FAFB;
+      --muted: #CAD3DF;
+      --soft: #97A6BA;
+      --border: #31435B;
+      --border-strong: #46617F;
+      --accent: #8FA7FF;
+      --accent-dark: #B6C5FF;
+      --gold: #F0B90B;
+      --gold-soft: rgba(240, 185, 11, 0.16);
+      --green: #67C486;
+      --green-soft: rgba(45, 125, 70, 0.20);
+      --danger: #FF8E82;
+      --danger-soft: rgba(180, 35, 24, 0.18);
+      --nav: rgba(18, 18, 18, 0.88);
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+      --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.30);
+      --shadow-lg: 0 24px 70px rgba(0, 0, 0, 0.40);
+      color-scheme: dark;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      color: var(--muted);
+      background: var(--bg);
+      font-family: var(--font);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+      transition: background-color 180ms ease, color 180ms ease;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    img, svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select, textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    :focus-visible {
+      outline: 3px solid color-mix(in srgb, var(--accent), transparent 30%);
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -60px;
+      left: 16px;
+      z-index: 200;
+      padding: 12px 16px;
+      color: var(--bg);
+      background: var(--text);
+      border-radius: var(--radius);
+      font-weight: 800;
+    }
+
+    .skip-link:focus {
+      top: 16px;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: 96px 0;
+    }
+
+    .section-muted {
+      background:
+        linear-gradient(180deg, rgba(var(--bg-rgb), 0.92), rgba(var(--bg-rgb), 0.98)),
+        color-mix(in srgb, var(--surface-2), var(--bg) 35%);
+      border-block: 1px solid var(--border);
+    }
+
+    .section-dark {
+      color: #F9FAFB;
+      background:
+        radial-gradient(circle at 15% 0%, rgba(94, 129, 244, 0.28), transparent 32rem),
+        radial-gradient(circle at 85% 25%, rgba(240, 185, 11, 0.18), transparent 26rem),
+        linear-gradient(135deg, #0D1B2A, #121212);
+    }
+
+    .narrow {
+      max-width: 860px;
+    }
+
+    .section-heading {
+      max-width: 780px;
+      margin: 0 auto 48px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 12px;
+      color: var(--green);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .section-dark .eyebrow {
+      color: var(--gold);
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      color: var(--text);
+      font-family: var(--font-display);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .section-dark h1,
+    .section-dark h2,
+    .section-dark h3 {
+      color: #FFFFFF;
+    }
+
+    h1 {
+      max-width: 680px;
+      font-size: clamp(2.5rem, 5.7vw, 5rem);
+      font-weight: 900;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.35rem);
+      font-weight: 900;
+    }
+
+    h3 {
+      font-size: 1.22rem;
+      font-weight: 900;
+    }
+
+    .lead {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.18rem);
+    }
+
+    .section-dark .lead,
+    .section-dark p {
+      color: rgba(249, 250, 251, 0.78);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 50px;
+      padding: 0.88rem 1.18rem;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      font-weight: 900;
+      color: var(--text);
+      transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease, border-color 180ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-primary {
+      color: #FFFFFF;
+      background: var(--accent);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      background: var(--surface);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+    }
+
+    .btn-gold {
+      color: #121212;
+      background: var(--gold);
+    }
+
+    .btn-full {
+      width: 100%;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--nav);
+      border-bottom: 1px solid color-mix(in srgb, var(--border), transparent 20%);
+      backdrop-filter: blur(18px);
+    }
+
+    .site-header.scrolled {
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: max-content;
+      color: var(--text);
+      font-weight: 950;
+    }
+
+    .brand img {
+      width: auto;
+      height: 52px;
+      max-width: 188px;
+      object-fit: contain;
+      padding: 5px 8px;
+      border: 1px solid color-mix(in srgb, var(--border), transparent 18%);
+      border-radius: 12px;
+      background: #FFFFFF;
+      box-shadow: 0 1px 2px rgba(18, 18, 18, 0.08);
+      transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+    }
+
+    body.dark .brand img {
+      border-color: rgba(240, 185, 11, 0.30);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+    }
+
+    .brand span {
+      line-height: 1.1;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 0.94rem;
+      font-weight: 850;
+    }
+
+    .nav-links a:not(.btn):hover {
+      color: var(--text);
+    }
+
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 42px;
+      padding: 0 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      background: var(--surface);
+      font-weight: 900;
+    }
+
+    .theme-toggle .toggle-dot {
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--gold));
+      box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.32);
+    }
+
+    .mobile-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      background: var(--surface);
+    }
+
+    .mobile-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      margin: 5px auto;
+      background: currentColor;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: calc(100vh - 78px);
+      padding: 86px 0 72px;
+      background:
+        radial-gradient(circle at 80% 12%, rgba(94, 129, 244, 0.20), transparent 33rem),
+        radial-gradient(circle at 12% 90%, rgba(240, 185, 11, 0.14), transparent 28rem),
+        linear-gradient(180deg, var(--bg), color-mix(in srgb, var(--surface-2), var(--bg) 38%));
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(420px, 0.92fr);
+      gap: 58px;
+      align-items: center;
+    }
+
+    .hero-subhead {
+      max-width: 650px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: clamp(1.08rem, 2vw, 1.25rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin: 30px 0 0;
+    }
+
+    .trial-note {
+      margin: 18px 0 0;
+      color: var(--soft);
+      font-weight: 850;
+    }
+
+    .risk-line {
+      margin-top: 26px;
+      padding: 14px 16px;
+      border-left: 4px solid var(--gold);
+      border-radius: var(--radius);
+      color: var(--text);
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+      font-weight: 800;
+    }
+
+    .hero-card {
+      position: relative;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .app-window-bar {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 14px;
+      color: var(--soft);
+      font-size: 0.82rem;
+      font-weight: 900;
+    }
+
+    .app-window-bar span {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--border);
+    }
+
+    .app-window-bar strong {
+      margin-left: auto;
+    }
+
+    .license-summary {
+      padding: 22px;
+      border-radius: var(--radius);
+      color: #121212;
+      background:
+        linear-gradient(135deg, rgba(94, 129, 244, 0.18), rgba(45, 125, 70, 0.18)),
+        #FFFFFF;
+    }
+
+    .license-summary-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .small-label {
+      margin: 0;
+      color: var(--green);
+      font-size: 0.78rem;
+      font-weight: 950;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .license-summary h2 {
+      margin: 6px 0 0;
+      color: #121212;
+      font-size: 2.25rem;
+    }
+
+    .hours-pill {
+      min-width: max-content;
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: #795600;
+      background: #FFF0BF;
+      font-weight: 950;
+      font-size: 0.82rem;
+    }
+
+    .progress-track {
+      height: 12px;
+      margin: 18px 0;
+      overflow: hidden;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--border), transparent 25%);
+    }
+
+    .progress-track span {
+      display: block;
+      width: 78%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--accent), var(--green));
+      animation: progress-pulse 4s ease-in-out infinite;
+    }
+
+    .preview-progress {
+      margin: 0 18px 18px;
+    }
+
+    .preview-progress-label {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+      color: var(--text);
+      font-size: 0.84rem;
+      font-weight: 900;
+    }
+
+    .preview-progress-track {
+      height: 12px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--border), var(--surface) 35%);
+      border: 1px solid color-mix(in srgb, var(--border), transparent 30%);
+    }
+
+    .preview-progress-fill {
+      display: block;
+      width: 20%;
+      height: 100%;
+      border-radius: inherit;
+      background: #173A7A;
+      transition: width 320ms ease;
+    }
+
+    body.dark .preview-progress-fill {
+      background: #AFC3FF;
+    }
+
+    .mini-rows {
+      display: grid;
+      gap: 11px;
+      margin-top: 16px;
+    }
+
+    .mini-row {
+      display: grid;
+      grid-template-columns: 16px 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 13px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      background: var(--surface);
+      font-weight: 850;
+    }
+
+    .mini-row .dot {
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: var(--border);
+    }
+
+    .mini-row.done .dot { background: var(--green); }
+    .mini-row.warn {
+      border-color: color-mix(in srgb, var(--gold), var(--border) 35%);
+    }
+    .mini-row.warn .dot {
+      background: var(--gold);
+      animation: pulse 1.6s ease-in-out infinite;
+    }
+
+    .floating-reminder {
+      position: absolute;
+      right: -22px;
+      bottom: 42px;
+      max-width: 270px;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      background: var(--surface);
+      box-shadow: var(--shadow-md);
+      animation: floaty 5s ease-in-out infinite;
+    }
+
+    .floating-reminder strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .trust-ribbon {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 18px 26px;
+      margin-top: 54px;
+      padding: 15px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      color: var(--text);
+      background: color-mix(in srgb, var(--surface), transparent 3%);
+      box-shadow: var(--shadow-sm);
+      font-weight: 900;
+    }
+
+    .trust-ribbon span {
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .logo-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .client-logo {
+      min-height: 66px;
+      display: grid;
+      place-items: center;
+      border: 1px dashed var(--border-strong);
+      border-radius: var(--radius);
+      color: var(--soft);
+      background: var(--surface);
+      font-size: 0.9rem;
+      font-weight: 950;
+      text-align: center;
+    }
+
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .pain-card {
+      position: relative;
+      overflow: hidden;
+      padding: 24px;
+      transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+    }
+
+    .pain-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--gold));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 220ms ease;
+    }
+
+    .pain-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+      box-shadow: var(--shadow-md);
+    }
+
+    .pain-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .icon-box {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      border-radius: var(--radius);
+      color: var(--accent);
+      background: color-mix(in srgb, var(--accent), transparent 88%);
+    }
+
+    .icon-box svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      stroke-width: 2.4;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .pain-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .pain-consequence {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      color: var(--danger);
+      font-size: 0.88rem;
+      font-weight: 900;
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .comparison-panel {
+      padding: 28px;
+    }
+
+    .comparison-before {
+      border-top: 5px solid var(--danger);
+    }
+
+    .comparison-after {
+      border-top: 5px solid var(--green);
+      box-shadow: var(--shadow-md);
+    }
+
+    .comparison-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      font-weight: 950;
+      color: var(--text);
+    }
+
+    .comparison-label svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .check-list {
+      display: grid;
+      gap: 13px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .check-list li {
+      position: relative;
+      padding-left: 28px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .check-list li::before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-weight: 950;
+    }
+
+    .check-list.negative li::before {
+      content: "×";
+      color: var(--danger);
+    }
+
+    .check-list.positive li::before {
+      content: "✓";
+      color: var(--green);
+    }
+
+    .preview-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(420px, 1fr);
+      gap: 48px;
+      align-items: center;
+    }
+
+    .live-preview {
+      overflow: hidden;
+    }
+
+    .preview-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      font-weight: 950;
+    }
+
+    .preview-topbar span {
+      color: var(--soft);
+      font-size: 0.9rem;
+    }
+
+    .preview-stage {
+      position: relative;
+      min-height: 390px;
+      padding: 30px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 80% 18%, rgba(94, 129, 244, 0.16), transparent 18rem),
+        var(--surface);
+    }
+
+    .scan-line {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      animation: scan 3.2s linear infinite;
+    }
+
+    .preview-state {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      min-height: 200px;
+      text-align: center;
+    }
+
+    .preview-icon {
+      display: grid;
+      place-items: center;
+      width: 76px;
+      height: 76px;
+      margin-bottom: 18px;
+      border-radius: 18px;
+      color: #FFFFFF;
+      background: linear-gradient(135deg, var(--accent), var(--green));
+      box-shadow: var(--shadow-md);
+    }
+
+    .preview-icon svg {
+      width: 36px;
+      height: 36px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .preview-log {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .preview-log span {
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      background: color-mix(in srgb, var(--surface), var(--surface-2) 22%);
+      font-weight: 850;
+      animation: log-nudge 4s ease infinite;
+    }
+
+    .metrics-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .metric {
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .metric strong {
+      display: block;
+      color: var(--text);
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    .metric span {
+      color: var(--soft);
+      font-size: 0.84rem;
+      font-weight: 800;
+    }
+
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 18px;
+      counter-reset: steps;
+    }
+
+    .step-card {
+      position: relative;
+      padding: 24px;
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+      border-radius: 50%;
+      color: #FFFFFF;
+      background: var(--accent);
+      font-weight: 950;
+    }
+
+    .features-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 26px;
+    }
+
+    .features-tab {
+      min-height: 46px;
+      padding: 0.72rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--muted);
+      background: var(--surface);
+      font-weight: 900;
+      transition: color 180ms ease, background-color 180ms ease, transform 180ms ease, border-color 180ms ease;
+    }
+
+    .features-tab:hover {
+      transform: translateY(-2px);
+      color: var(--text);
+      border-color: var(--accent);
+    }
+
+    .features-tab.active {
+      color: #FFFFFF;
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .features-content {
+      position: relative;
+    }
+
+    .feature-panel {
+      display: none;
+      grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1fr);
+      gap: 34px;
+      align-items: center;
+      padding: 32px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      box-shadow: var(--shadow-md);
+    }
+
+    .feature-panel.active {
+      display: grid;
+      animation: fade-up 280ms ease both;
+    }
+
+    .feature-desc {
+      margin: 14px 0 22px;
+    }
+
+    .feature-mockup {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--surface-2);
+      overflow: hidden;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    .mockup-bar {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 13px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .mockup-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--border);
+    }
+
+    .mockup-body {
+      padding: 18px;
+    }
+
+    .course-row,
+    .certificate-row,
+    .alert-row,
+    .report-row,
+    .team-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+      padding: 13px 14px;
+      margin-bottom: 10px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      background: var(--surface);
+      font-weight: 850;
+    }
+
+    .status {
+      min-width: max-content;
+      padding: 5px 9px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 950;
+    }
+
+    .status.good {
+      color: var(--green);
+      background: var(--green-soft);
+    }
+
+    .status.warn {
+      color: #795600;
+      background: var(--gold-soft);
+    }
+
+    .pricing-toggle-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin: -16px 0 34px;
+      color: var(--muted);
+      font-weight: 900;
+    }
+
+    .pricing-toggle {
+      position: relative;
+      width: 58px;
+      height: 32px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--border-strong);
+    }
+
+    .pricing-toggle.annual {
+      background: var(--accent);
+    }
+
+    .pricing-toggle-knob {
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      transition: transform 180ms ease;
+    }
+
+    .pricing-toggle.annual .pricing-toggle-knob {
+      transform: translateX(26px);
+    }
+
+    .save-badge {
+      padding: 5px 9px;
+      border-radius: 999px;
+      color: #795600;
+      background: var(--gold-soft);
+      font-size: 0.8rem;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .pricing-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: 28px;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+      box-shadow: var(--shadow-md);
+    }
+
+    .pricing-card.featured {
+      border: 2px solid var(--accent);
+      transform: translateY(-12px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: #121212;
+      background: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 950;
+    }
+
+    .pricing-desc {
+      margin: 10px 0 0;
+    }
+
+    .price {
+      display: flex;
+      align-items: baseline;
+      gap: 3px;
+      margin: 24px 0 18px;
+      color: var(--text);
+      font-size: 3rem;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .price small {
+      color: var(--soft);
+      font-size: 1rem;
+      font-weight: 850;
+    }
+
+    .pricing-card .check-list {
+      margin-bottom: 24px;
+    }
+
+    .pricing-card .btn {
+      margin-top: auto;
+    }
+
+    .pricing-note {
+      max-width: 780px;
+      margin: 28px auto 0;
+      padding: 16px;
+      border-left: 4px solid var(--gold);
+      border-radius: var(--radius);
+      color: var(--text);
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+      font-weight: 850;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .trust-card {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 22px;
+    }
+
+    .trust-card .icon-box {
+      margin: 0;
+      color: var(--gold);
+      background: var(--gold-soft);
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .faq-item {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 18px;
+      border: 0;
+      color: var(--text);
+      background: transparent;
+      text-align: left;
+      font-weight: 950;
+    }
+
+    .faq-question span {
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--accent);
+      background: color-mix(in srgb, var(--accent), transparent 88%);
+      font-size: 1.25rem;
+      line-height: 1;
+      transition: transform 180ms ease;
+    }
+
+    .faq-answer {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 220ms ease;
+    }
+
+    .faq-answer-inner {
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .faq-answer-inner p {
+      margin: 0;
+      padding: 0 18px 18px;
+    }
+
+    .faq-item.open .faq-answer {
+      grid-template-rows: 1fr;
+    }
+
+    .faq-item.open .faq-question span {
+      transform: rotate(45deg);
+    }
+
+    .signup-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.82fr) minmax(480px, 1fr);
+      gap: 44px;
+      align-items: start;
+    }
+
+    .signup-card {
+      padding: 24px;
+    }
+
+    .signup-inner-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(230px, 0.85fr);
+      gap: 20px;
+      align-items: start;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--text);
+      font-weight: 900;
+    }
+
+    input, select {
+      width: 100%;
+      min-height: 48px;
+      padding: 0.8rem 0.88rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    .form-group.invalid input,
+    .form-group.invalid select {
+      border-color: var(--danger);
+    }
+
+    .error-message {
+      display: none;
+      margin-top: 5px;
+      color: var(--danger);
+      font-size: 0.86rem;
+      font-weight: 850;
+    }
+
+    .form-group.invalid .error-message {
+      display: block;
+    }
+
+    .form-success {
+      margin: 14px 0 0;
+      padding: 12px;
+      border-radius: var(--radius);
+      color: var(--green);
+      background: var(--green-soft);
+      font-weight: 900;
+    }
+
+    .zelle-panel {
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface-2);
+    }
+
+    .qr-frame {
+      margin: 14px 0;
+      padding: 12px;
+      border-radius: var(--radius);
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+    }
+
+    #zelle-qr {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+    }
+
+    .zelle-panel ol {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .zelle-panel li {
+      margin: 8px 0;
+    }
+
+    .final-cta {
+      padding: 64px 0;
+      text-align: center;
+    }
+
+    .final-cta-box {
+      padding: 42px;
+      border-radius: var(--radius-lg);
+      background:
+        radial-gradient(circle at 20% 20%, rgba(240, 185, 11, 0.18), transparent 18rem),
+        linear-gradient(135deg, #0D1B2A, #121212);
+      color: #FFFFFF;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .final-cta-box h2 {
+      color: #FFFFFF;
+    }
+
+    .final-cta-box p {
+      max-width: 660px;
+      margin: 14px auto 24px;
+      color: rgba(249, 250, 251, 0.78);
+    }
+
+    .legal-strip {
+      padding: 48px 0;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .legal-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .legal-card {
+      padding: 22px;
+    }
+
+    .footer {
+      padding: 54px 0 28px;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(150px, 0.5fr));
+      gap: 28px;
+    }
+
+    .footer p {
+      max-width: 440px;
+    }
+
+    .footer h3 {
+      margin-bottom: 12px;
+      font-size: 1rem;
+    }
+
+    .footer a:not(.brand) {
+      display: block;
+      margin: 8px 0;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .footer-bottom {
+      margin-top: 30px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+      color: var(--soft);
+      font-size: 0.92rem;
+    }
+
+    .reveal,
+    .reveal-left,
+    .reveal-right {
+      opacity: 1;
+      transform: none;
+    }
+
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 650ms ease, transform 650ms ease;
+    }
+
+    .js .reveal-left {
+      opacity: 0;
+      transform: translateX(-34px);
+      transition: opacity 650ms ease, transform 650ms ease;
+    }
+
+    .js .reveal-right {
+      opacity: 0;
+      transform: translateX(34px);
+      transition: opacity 650ms ease, transform 650ms ease;
+    }
+
+    .js .visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @keyframes progress-pulse {
+      0%, 100% { width: 74%; }
+      50% { width: 86%; }
+    }
+
+    @keyframes pulse {
+      50% { transform: scale(1.28); opacity: 0.58; }
+    }
+
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes scan {
+      from { top: 0; opacity: 0.12; }
+      20%, 80% { opacity: 1; }
+      to { top: 100%; opacity: 0.12; }
+    }
+
+    @keyframes log-nudge {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(5px); }
+    }
+
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .js .reveal,
+      .js .reveal-left,
+      .js .reveal-right {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @media (max-width: 1040px) {
+      .mobile-toggle {
+        display: block;
+      }
+      .nav-links {
+        position: fixed;
+        inset: 78px 20px auto 20px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 18px;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        background: var(--surface);
+        box-shadow: var(--shadow-lg);
+      }
+      .nav-links.open {
+        display: flex;
+      }
+      .hero-grid,
+      .preview-grid,
+      .feature-panel,
+      .signup-grid,
+      .signup-inner-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .pain-grid,
+      .how-grid,
+      .pricing-grid,
+      .trust-grid,
+      .logo-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .pricing-card.featured {
+        transform: none;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        width: min(100% - 28px, var(--container));
+      }
+      .section {
+        padding: 68px 0;
+      }
+      .hero {
+        padding: 58px 0 62px;
+      }
+      .hero-actions,
+      .trust-ribbon {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .btn {
+        width: 100%;
+      }
+      .pain-grid,
+      .how-grid,
+      .pricing-grid,
+      .trust-grid,
+      .comparison-grid,
+      .metrics-row,
+      .logo-strip {
+        grid-template-columns: 1fr;
+      }
+      .floating-reminder {
+        position: static;
+        max-width: none;
+        margin-top: 14px;
+      }
+      .license-summary-top,
+      .course-row,
+      .certificate-row,
+      .alert-row,
+      .report-row,
+      .team-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .brand span {
+        font-size: 0.94rem;
+      }
+      .brand img {
+        height: 44px;
+        max-width: 148px;
+        padding: 4px 7px;
+      }
+      .js .reveal-left,
+      .js .reveal-right {
+        opacity: 0;
+        transform: translateY(26px);
+      }
+      .js .reveal-left.visible,
+      .js .reveal-right.visible {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body class="light">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="nav container" aria-label="Primary navigation">
+      <a class="brand" href="#hero" aria-label="CE Compliance Agent home">
+        <img src="logo.png" alt="CE Compliance Agent logo" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2214%22 fill=%22%235E81F4%22/%3E%3Cpath d=%22M32 10l18 8v14c0 12-8 19-18 23-10-4-18-11-18-23V18l18-8z%22 fill=%22%23121212%22 opacity=%22.88%22/%3E%3Cpath d=%22M23 33l6 6 13-15%22 fill=%22none%22 stroke=%22%23F0B90B%22 stroke-width=%226%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E';" />
+        <span>CE Compliance Agent</span>
+      </a>
+      <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="#pain-points">Pain Points</a>
+        <a href="#preview">Live Preview</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark theme">
+          <span class="toggle-dot" aria-hidden="true"></span>
+          <span id="themeLabel">Dark</span>
+        </button>
+        <a class="btn btn-primary" href="#signup">Start Free Trial</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- Hero: clear value proposition, product preview and primary calls to action -->
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <h1>Protect your license before renewal</h1>
+          <p class="hero-subhead">CE Compliance Agent tracks your continuing education, stores certificates, finds approved courses, and reminds you before deadlines turn into fines.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#signup">Start Free Trial</a>
+            <a class="btn btn-secondary" href="#features">See Features</a>
+          </div>
+          <p class="trial-note">14-day free trial. Early-bird pricing available for launch customers.</p>
+          <p class="risk-line">Missing CE deadlines can lead to fines, delayed renewals, audit stress, or license suspension.</p>
+        </div>
+
+        <div class="hero-visual reveal-right">
+          <div class="hero-card" aria-label="Compliance dashboard preview">
+            <div class="app-window-bar">
+              <span></span><span></span><span></span>
+              <strong>Compliance workspace</strong>
+            </div>
+            <div class="license-summary">
+              <div class="license-summary-top">
+                <div>
+                  <p class="small-label">California Appraiser License</p>
+                  <h2>32 / 40 hours complete</h2>
+                </div>
+                <span class="hours-pill">8 hrs remaining</span>
+              </div>
+            </div>
+            <div class="progress-track" aria-hidden="true"><span></span></div>
+            <div class="mini-rows">
+              <div class="mini-row done"><span class="dot"></span><span>Certificate saved: Ethics Refresher</span><strong>3 hrs</strong></div>
+              <div class="mini-row warn"><span class="dot"></span><span>USPAP Update needed before renewal</span><strong>7 hrs</strong></div>
+              <div class="mini-row"><span class="dot"></span><span>Audit packet ready to export</span><strong>PDF</strong></div>
+            </div>
+            <div class="floating-reminder">
+              <strong>30-day reminder sent</strong>
+              <span>Missing hours and approved course options included.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="trust-ribbon reveal">
+          <strong>Trusted by appraisers & inspectors</strong>
+          <span>Secure certificate storage</span>
+          <span>Board-ready reports</span>
+          <span>Deadline reminders</span>
+        </div>
+        <div class="logo-strip reveal" aria-label="Organizations using CE Compliance Agent">
+          <div class="client-logo">NorthStar Appraisal</div>
+          <div class="client-logo">ClearPath Inspections</div>
+          <div class="client-logo">MetroValuation Group</div>
+          <div class="client-logo">Keystone Property Pros</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pain points: restores the four original problem cards -->
+    <section class="section section-muted" id="pain-points">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Manual tracking is expensive</p>
+          <h2>Sound familiar?</h2>
+          <p class="lead">CE tracking usually lives in scattered spreadsheets, inbox folders, provider receipts, and old calendar reminders. That is fragile when your license is on the line.</p>
+        </div>
+        <div class="pain-grid">
+          <article class="card pain-card reveal">
+            <div class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M8 4v16M16 4v16M4 10h16M4 16h16"/></svg></div>
+            <h3>Spreadsheet chaos</h3>
+            <p>Manually tracking CE hours in spreadsheets, sticky notes, and email folders is error-prone and exhausting.</p>
+            <div class="pain-consequence">Risk: incomplete records during an audit.</div>
+          </article>
+          <article class="card pain-card reveal">
+            <div class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></div>
+            <h3>Course hunting</h3>
+            <p>Searching for state-approved CE courses across dozens of providers and board websites wastes billable time.</p>
+            <div class="pain-consequence">Risk: paying for courses that do not count.</div>
+          </article>
+          <article class="card pain-card reveal">
+            <div class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v6l4 2"/></svg></div>
+            <h3>Missed deadlines</h3>
+            <p>One forgotten renewal date can mean fines, license suspension, or losing your ability to practice.</p>
+            <div class="pain-consequence">Risk: costly renewal delays.</div>
+          </article>
+          <article class="card pain-card reveal">
+            <div class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-5"/></svg></div>
+            <h3>Audit scramble</h3>
+            <p>Compiling certificates and proof of completion when the state board comes knocking creates avoidable stress.</p>
+            <div class="pain-consequence">Risk: days lost to paperwork.</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Before and after: contrasts manual tracking with the automated workflow -->
+    <section class="section" id="comparison">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Before & after</p>
+          <h2>The transformation</h2>
+          <p class="lead">Move from reactive paperwork to a visible, always-current renewal posture.</p>
+        </div>
+        <div class="comparison-grid">
+          <article class="card comparison-panel comparison-before reveal-left">
+            <div class="comparison-label">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--danger)" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+              Before CE Compliance Agent
+            </div>
+            <ul class="check-list negative">
+              <li>Digging through inboxes for missing PDF certificates right before a deadline.</li>
+              <li>Guessing whether a course is approved for your state, license type, and renewal cycle.</li>
+              <li>Relying on static calendar reminders you set two years ago.</li>
+              <li>Worrying that a surprise audit will expose missing documentation.</li>
+              <li>Losing billable time to administrative cleanup instead of client work.</li>
+            </ul>
+          </article>
+          <article class="card comparison-panel comparison-after reveal-right">
+            <div class="comparison-label">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              After CE Compliance Agent
+            </div>
+            <ul class="check-list positive">
+              <li>Completion emails are detected and certificates are stored automatically.</li>
+              <li>Approved course options are curated by profession, state, category, and hours needed.</li>
+              <li>Smart reminders show exactly what is missing before the deadline gets close.</li>
+              <li>Audit-ready reports export with certificates attached.</li>
+              <li>Your compliance status stays visible all year instead of only during renewal week.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live preview: JavaScript advances through five visible steps -->
+    <section class="section section-dark" id="preview">
+      <div class="container preview-grid">
+        <div class="preview-copy reveal-left">
+          <p class="eyebrow">Live preview</p>
+          <h2>Watch a renewal cycle organize itself.</h2>
+          <p class="lead">This lightweight preview simulates the agent workflow: scan for certificates, log approved hours, flag gaps, recommend courses, and prepare a renewal report.</p>
+          <div class="metrics-row">
+            <div class="metric"><strong>60</strong><span>day warning</span></div>
+            <div class="metric"><strong>30</strong><span>day warning</span></div>
+            <div class="metric"><strong>14</strong><span>day warning</span></div>
+          </div>
+        </div>
+        <div class="card live-preview reveal-right" aria-live="polite">
+          <div class="preview-topbar">
+            <strong id="previewTitle">Scanning inbox</strong>
+            <span id="previewStep">Step 1 of 5</span>
+          </div>
+          <div class="preview-progress" role="progressbar" aria-label="Live preview progress" aria-valuemin="1" aria-valuemax="5" aria-valuenow="1" id="previewProgress">
+            <div class="preview-progress-label">
+              <span>Workflow progress</span>
+              <span id="previewProgressText">20%</span>
+            </div>
+            <div class="preview-progress-track" aria-hidden="true">
+              <span class="preview-progress-fill" id="previewProgressFill"></span>
+            </div>
+          </div>
+          <div class="preview-stage">
+            <div class="scan-line" aria-hidden="true"></div>
+            <div class="preview-state">
+              <div class="preview-icon" id="previewIcon" aria-hidden="true"></div>
+              <h3 id="previewHeading">Finding course certificates</h3>
+              <p id="previewText">Checking recent email for completion notices, provider receipts, and matching PDF certificates.</p>
+            </div>
+            <div class="preview-log" id="previewLog">
+              <span>Inbox connected</span>
+              <span>Provider receipt found</span>
+              <span>Certificate queued</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works: five concise onboarding steps -->
+    <section class="section section-muted" id="how-it-works">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">How it works</p>
+          <h2>Up and running in minutes.</h2>
+          <p class="lead">A simple workflow that keeps your renewal record current without turning compliance into a second job.</p>
+        </div>
+        <div class="how-grid">
+          <article class="card step-card reveal">
+            <div class="step-number">1</div>
+            <h3>Connect your accounts</h3>
+            <p>Securely connect the inbox and folders where CE receipts, certificates, and provider emails arrive.</p>
+          </article>
+          <article class="card step-card reveal">
+            <div class="step-number">2</div>
+            <h3>Enter license info</h3>
+            <p>Add your profession, state, license type, renewal cycle, and required CE categories.</p>
+          </article>
+          <article class="card step-card reveal">
+            <div class="step-number">3</div>
+            <h3>Discover courses</h3>
+            <p>Find approved course options that match your state, license rules, missing categories, and budget.</p>
+          </article>
+          <article class="card step-card reveal">
+            <div class="step-number">4</div>
+            <h3>Track credits</h3>
+            <p>Completed hours, certificate files, and renewal progress update automatically as records arrive.</p>
+          </article>
+          <article class="card step-card reveal">
+            <div class="step-number">5</div>
+            <h3>Relax & renew on time</h3>
+            <p>Get reminders before deadlines and export a board-ready packet when renewal season arrives.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features: restored five-tab product tour -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Features</p>
+          <h2>Everything you need. Nothing you do not.</h2>
+          <p class="lead">Restored from the original build: discovery, logging, reminders, reporting, and team oversight.</p>
+        </div>
+
+        <div class="features-tabs reveal" role="tablist" aria-label="Feature tabs">
+          <button class="features-tab active" type="button" role="tab" aria-selected="true" aria-controls="panel-discovery" id="tab-discovery" data-tab="discovery">Course Discovery</button>
+          <button class="features-tab" type="button" role="tab" aria-selected="false" aria-controls="panel-logging" id="tab-logging" data-tab="logging">Credit Logging</button>
+          <button class="features-tab" type="button" role="tab" aria-selected="false" aria-controls="panel-alerts" id="tab-alerts" data-tab="alerts">Deadline Alerts</button>
+          <button class="features-tab" type="button" role="tab" aria-selected="false" aria-controls="panel-reporting" id="tab-reporting" data-tab="reporting">Compliance Reports</button>
+          <button class="features-tab" type="button" role="tab" aria-selected="false" aria-controls="panel-team" id="tab-team" data-tab="team">Team Dashboard</button>
+        </div>
+
+        <div class="features-content reveal">
+          <article class="feature-panel active" id="panel-discovery" role="tabpanel" aria-labelledby="tab-discovery" aria-hidden="false">
+            <div>
+              <h3>Course discovery that respects your license rules.</h3>
+              <p class="feature-desc">Search curated options from approved providers by state, profession, renewal category, format, hours, and price. No more buying hours that your board will not accept.</p>
+              <ul class="check-list positive">
+                <li>Filters by license type and category.</li>
+                <li>Ranks courses by relevance, rating, and cost.</li>
+                <li>Tracks USPAP, ethics, safety, and elective requirements.</li>
+                <li>Refreshes the course database weekly.</li>
+              </ul>
+            </div>
+            <div class="feature-mockup">
+              <div class="mockup-bar"><span class="mockup-dot"></span><span class="mockup-dot"></span><span class="mockup-dot"></span></div>
+              <div class="mockup-body">
+                <div class="course-row"><span>National USPAP Update</span><span class="status good">7 hrs approved</span></div>
+                <div class="course-row"><span>Ethics in Appraisal</span><span class="status good">3 hrs approved</span></div>
+                <div class="course-row"><span>Inspection Safety Refresher</span><span class="status warn">fills gap</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="feature-panel" id="panel-logging" role="tabpanel" aria-labelledby="tab-logging" aria-hidden="true">
+            <div>
+              <h3>Automatic credit logging without manual entry.</h3>
+              <p class="feature-desc">CE Compliance Agent scans completion emails, extracts hours and certificate details, stores files, and updates your progress.</p>
+              <ul class="check-list positive">
+                <li>Auto-detects completion emails and receipts.</li>
+                <li>Extracts completion date, provider, hours, and category.</li>
+                <li>Stores certificates in a secure renewal archive.</li>
+                <li>Supports manual upload when needed.</li>
+              </ul>
+            </div>
+            <div class="feature-mockup">
+              <div class="mockup-bar"><span class="mockup-dot"></span><span class="mockup-dot"></span><span class="mockup-dot"></span></div>
+              <div class="mockup-body">
+                <div class="certificate-row"><span>Ethics Refresher.pdf</span><span class="status good">logged</span></div>
+                <div class="certificate-row"><span>Green Valuation Certificate.pdf</span><span class="status good">stored</span></div>
+                <div class="certificate-row"><span>USPAP receipt</span><span class="status warn">needs PDF</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="feature-panel" id="panel-alerts" role="tabpanel" aria-labelledby="tab-alerts" aria-hidden="true">
+            <div>
+              <h3>Deadline alerts with useful detail.</h3>
+              <p class="feature-desc">Reminders are not just calendar pings. They show your deficiency, what is due, and what course options can close the gap.</p>
+              <ul class="check-list positive">
+                <li>60, 30, and 14 day reminder schedule.</li>
+                <li>Email and SMS reminder options.</li>
+                <li>Deficiency analysis included in each alert.</li>
+                <li>Course suggestions attached to gap notices.</li>
+              </ul>
+            </div>
+            <div class="feature-mockup">
+              <div class="mockup-bar"><span class="mockup-dot"></span><span class="mockup-dot"></span><span class="mockup-dot"></span></div>
+              <div class="mockup-body">
+                <div class="alert-row"><span>60 days: renewal approaching</span><span class="status good">sent</span></div>
+                <div class="alert-row"><span>30 days: USPAP missing</span><span class="status warn">action needed</span></div>
+                <div class="alert-row"><span>14 days: final check</span><span class="status good">scheduled</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="feature-panel" id="panel-reporting" role="tabpanel" aria-labelledby="tab-reporting" aria-hidden="true">
+            <div>
+              <h3>Audit-ready compliance reports.</h3>
+              <p class="feature-desc">Generate reports formatted for your state board or licensing body. Export summaries with the supporting certificates attached.</p>
+              <ul class="check-list positive">
+                <li>Board-specific report formatting.</li>
+                <li>PDF and CSV export options.</li>
+                <li>Certificate attachments included automatically.</li>
+                <li>Historical report archive by renewal cycle.</li>
+              </ul>
+            </div>
+            <div class="feature-mockup">
+              <div class="mockup-bar"><span class="mockup-dot"></span><span class="mockup-dot"></span><span class="mockup-dot"></span></div>
+              <div class="mockup-body">
+                <div class="report-row"><span>Total hours validated</span><span class="status good">40 / 40</span></div>
+                <div class="report-row"><span>Certificates attached</span><span class="status good">8 files</span></div>
+                <div class="report-row"><span>Renewal packet</span><span class="status good">ready</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="feature-panel" id="panel-team" role="tabpanel" aria-labelledby="tab-team" aria-hidden="true">
+            <div>
+              <h3>Team oversight for small firms.</h3>
+              <p class="feature-desc">Owners and office managers can monitor license status, missing hours, and upcoming deadlines across multiple professionals.</p>
+              <ul class="check-list positive">
+                <li>Manage up to three licenses on the Team plan.</li>
+                <li>Manager alerts for overdue or at-risk renewals.</li>
+                <li>Role-based views for staff and administrators.</li>
+                <li>Firm-wide export for internal reviews.</li>
+              </ul>
+            </div>
+            <div class="feature-mockup">
+              <div class="mockup-bar"><span class="mockup-dot"></span><span class="mockup-dot"></span><span class="mockup-dot"></span></div>
+              <div class="mockup-body">
+                <div class="team-row"><span>Sarah Jenkins</span><span class="status good">ready</span></div>
+                <div class="team-row"><span>Marcus Lee</span><span class="status warn">8 hrs left</span></div>
+                <div class="team-row"><span>Priya Shah</span><span class="status good">on track</span></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing: three plans with monthly and annual toggle -->
+    <section class="section section-muted" id="pricing">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Pricing</p>
+          <h2>Simple plans for solo pros and teams.</h2>
+          <p class="lead">Start with a 14-day free trial, then lock in early-bird launch pricing while enrollment is open.</p>
+        </div>
+        <div class="pricing-toggle-wrap reveal" aria-label="Billing period selector">
+          <span id="monthlyLabel">Monthly</span>
+          <button class="pricing-toggle" id="pricingToggle" type="button" aria-label="Toggle annual billing" aria-pressed="false">
+            <span class="pricing-toggle-knob"></span>
+          </button>
+          <span id="annualLabel">Annual <span class="save-badge">Save 15%</span></span>
+        </div>
+        <div class="pricing-grid">
+          <article class="card pricing-card reveal">
+            <h3>Solo</h3>
+            <p class="pricing-desc">For one professional managing a single state license.</p>
+            <div class="price"><span class="price-amount" data-monthly="49" data-annual="42">$49</span><small>/mo</small></div>
+            <ul class="check-list positive">
+              <li>1 license tracked</li>
+              <li>Email integration and auto-logging</li>
+              <li>Course discovery</li>
+              <li>Standard compliance reports</li>
+            </ul>
+            <a class="btn btn-secondary" href="#signup">Start Free Trial</a>
+          </article>
+          <article class="card pricing-card featured reveal">
+            <div class="pricing-badge">Most popular</div>
+            <h3>Team</h3>
+            <p class="pricing-desc">For small firms managing up to three licenses.</p>
+            <div class="price"><span class="price-amount" data-monthly="129" data-annual="110">$129</span><small>/mo</small></div>
+            <ul class="check-list positive">
+              <li>Up to 3 licenses tracked</li>
+              <li>Everything in Solo</li>
+              <li>Manager alerts and team reports</li>
+              <li>Priority email support</li>
+            </ul>
+            <a class="btn btn-primary" href="#signup">Start Free Trial</a>
+          </article>
+          <article class="card pricing-card reveal">
+            <h3>Enterprise</h3>
+            <p class="pricing-desc">For larger firms with complex multi-state compliance needs.</p>
+            <div class="price"><span>Custom</span></div>
+            <ul class="check-list positive">
+              <li>Unlimited licenses tracked</li>
+              <li>Custom board workflows</li>
+              <li>Dedicated onboarding support</li>
+              <li>Firm-wide compliance exports</li>
+            </ul>
+            <a class="btn btn-secondary" href="#signup">Contact Sales</a>
+          </article>
+        </div>
+        <p class="pricing-note reveal"><strong>Early-bird note:</strong> enroll during launch to keep beta pricing for life. Cancel anytime after your trial.</p>
+      </div>
+    </section>
+
+    <!-- Trust and benefits: badges and proof without fake testimonials -->
+    <section class="section" id="trust">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Trust signals</p>
+          <h2>Built for professionals who cannot afford compliance surprises.</h2>
+        </div>
+        <div class="trust-grid">
+          <article class="card trust-card reveal">
+            <div class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div><h3>Secure & private</h3><p>Your certificates and profile data stay protected and are never sold to providers.</p></div>
+          </article>
+          <article class="card trust-card reveal">
+            <div class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+            <div><h3>Bank-level security</h3><p>Designed around encrypted storage, access controls, and clean audit trails.</p></div>
+          </article>
+          <article class="card trust-card reveal">
+            <div class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div>
+            <div><h3>Accuracy you can count on</h3><p>Rules and courses are organized to help you keep requirements current and visible.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ: accessible accordion -->
+    <section class="section section-muted" id="faq">
+      <div class="container narrow">
+        <div class="section-heading reveal">
+          <p class="eyebrow">FAQ</p>
+          <h2>Questions before you start?</h2>
+        </div>
+        <div class="faq-list reveal">
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">Is my data and certificate storage secure?<span aria-hidden="true">+</span></button>
+            <div class="faq-answer"><div class="faq-answer-inner"><p>Yes. The product is designed around encrypted storage, privacy-first account access, and clean document organization. Your certificates and personal data are not sold or shared with course providers.</p></div></div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">What professions do you currently support?<span aria-hidden="true">+</span></button>
+            <div class="faq-answer"><div class="faq-answer-inner"><p>The current site is focused on real-estate appraisers and home inspectors. The workflow can later expand to other licensed professionals with recurring CE requirements.</p></div></div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">Can I upload certificates manually?<span aria-hidden="true">+</span></button>
+            <div class="faq-answer"><div class="faq-answer-inner"><p>Yes. Automatic email detection is designed to save time, but manual upload remains available for older certificates, paper records, or provider portals that do not email completion PDFs.</p></div></div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">How does the 14-day trial work?<span aria-hidden="true">+</span></button>
+            <div class="faq-answer"><div class="faq-answer-inner"><p>You can start with your license details and sample renewal cycle for 14 days. If it is not useful, cancel before the trial ends.</p></div></div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">How do I pay with Zelle?<span aria-hidden="true">+</span></button>
+            <div class="faq-answer"><div class="faq-answer-inner"><p>Submit the signup form, scan the Zelle QR code in the payment section, and include the same email address in the Zelle memo so the payment can be matched to your registration.</p></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Signup and payment: account form plus Zelle instructions -->
+    <section class="section" id="signup">
+      <div class="container signup-grid">
+        <div class="signup-copy reveal-left">
+          <p class="eyebrow">Start today</p>
+          <h2>Protect your license before the next deadline.</h2>
+          <p class="lead">Create your account details, then complete payment with Zelle. Include your email in the memo so your payment and account can be matched.</p>
+          <p class="risk-line">Your first 14 days are free. Early-bird launch pricing is available for a limited time.</p>
+        </div>
+        <div class="card signup-card reveal-right">
+          <div class="signup-inner-grid">
+            <form id="signupForm" novalidate>
+              <h3>Account details</h3>
+              <div class="form-group">
+                <label for="firstName">First name</label>
+                <input id="firstName" name="firstName" type="text" autocomplete="given-name" required placeholder="John" />
+                <div class="error-message">Please enter your first name.</div>
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last name</label>
+                <input id="lastName" name="lastName" type="text" autocomplete="family-name" required placeholder="Doe" />
+                <div class="error-message">Please enter your last name.</div>
+              </div>
+              <div class="form-group">
+                <label for="email">Email address</label>
+                <input id="email" name="email" type="email" autocomplete="email" required placeholder="john@example.com" />
+                <div class="error-message">Please enter a valid email.</div>
+              </div>
+              <div class="form-group">
+                <label for="profession">Profession</label>
+                <select id="profession" name="profession" required>
+                  <option value="">Select your profession</option>
+                  <option value="appraiser">Real Estate Appraiser</option>
+                  <option value="inspector">Home Inspector</option>
+                </select>
+                <div class="error-message">Please select your profession.</div>
+              </div>
+              <button class="btn btn-primary btn-full" type="submit">Complete Registration</button>
+              <p class="form-success" id="formSuccess" hidden>Registration details received. Scan the Zelle QR code and include your email in the memo.</p>
+            </form>
+            <aside class="zelle-panel" aria-labelledby="zelle-title">
+              <h3 id="zelle-title">Pay with Zelle</h3>
+              <div class="qr-frame">
+                <img id="zelle-qr" src="zelle_qr.jpg" alt="Zelle QR code for CE Compliance Agent payment" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 320 320%22%3E%3Crect width=%22320%22 height=%22320%22 fill=%22%23fff%22/%3E%3Crect x=%2224%22 y=%2224%22 width=%2280%22 height=%2280%22 fill=%22%23121212%22/%3E%3Crect x=%2244%22 y=%2244%22 width=%2240%22 height=%2240%22 fill=%22%23fff%22/%3E%3Crect x=%22216%22 y=%2224%22 width=%2280%22 height=%2280%22 fill=%22%23121212%22/%3E%3Crect x=%22236%22 y=%2244%22 width=%2240%22 height=%2240%22 fill=%22%23fff%22/%3E%3Crect x=%2224%22 y=%22216%22 width=%2280%22 height=%2280%22 fill=%22%23121212%22/%3E%3Crect x=%2244%22 y=%22236%22 width=%2240%22 height=%2240%22 fill=%22%23fff%22/%3E%3Ctext x=%22160%22 y=%22158%22 font-family=%22Arial%22 font-size=%2222%22 text-anchor=%22middle%22 fill=%22%23121212%22%3EZelle QR%3C/text%3E%3Ctext x=%22160%22 y=%22186%22 font-family=%22Arial%22 font-size=%2214%22 text-anchor=%22middle%22 fill=%22%23526071%22%3Epayment code%3C/text%3E%3C/svg%3E';" />
+              </div>
+              <ol>
+                <li>Open Zelle in your banking app.</li>
+                <li>Scan the QR code above.</li>
+                <li>Enter your selected plan amount.</li>
+                <li>Add your email address in the memo field.</li>
+              </ol>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container">
+        <div class="final-cta-box reveal">
+          <h2>Stay compliant without the paperwork spiral.</h2>
+          <p>Start your free trial and see how much calmer renewal season feels when credits, certificates, alerts, and reports live in one place.</p>
+          <a class="btn btn-gold" href="#signup">Start Free Trial</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Legal information: lightweight anchors for footer navigation -->
+    <section class="legal-strip" aria-label="Legal information">
+      <div class="container legal-grid">
+        <article class="card legal-card" id="privacy">
+          <h2>Privacy</h2>
+          <p>CE Compliance Agent is designed to keep account details, certificate files, and renewal records private. Customer data is used only to support account setup, compliance tracking, payment matching, and service communication.</p>
+        </article>
+        <article class="card legal-card" id="terms">
+          <h2>Terms</h2>
+          <p>Use of the service is subject to accurate license information from the customer, timely payment, and responsible review of renewal requirements. The automated tool supports compliance work, but customers remain responsible for final submissions to their licensing boards.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="#hero">
+          <img src="logo.png" alt="CE Compliance Agent logo" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2214%22 fill=%22%235E81F4%22/%3E%3Cpath d=%22M32 10l18 8v14c0 12-8 19-18 23-10-4-18-11-18-23V18l18-8z%22 fill=%22%23121212%22 opacity=%22.88%22/%3E%3Cpath d=%22M23 33l6 6 13-15%22 fill=%22none%22 stroke=%22%23F0B90B%22 stroke-width=%226%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E';" />
+          <span>CE Compliance Agent</span>
+        </a>
+        <p>Continuing-education tracking, reminders, course discovery, and compliance reporting for real-estate appraisers and home inspectors.</p>
+      </div>
+      <div>
+        <h3>Product</h3>
+        <a href="#preview">Live Preview</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+      </div>
+      <div>
+        <h3>Resources</h3>
+        <a href="#hero">About</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#faq">FAQ</a>
+        <a href="#signup">Payment</a>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <a href="mailto:webnestam@gmail.com">webnestam@gmail.com</a>
+        <a href="#signup">Start Free Trial</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#terms">Terms</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">© 2026 CE Compliance Agent. All rights reserved.</div>
+  </footer>
+
+  <script>
+    document.documentElement.classList.add("js");
+
+    const html = document.documentElement;
+    const body = document.body;
+    const themeToggle = document.querySelector("#themeToggle");
+    const themeLabel = document.querySelector("#themeLabel");
+    const mobileToggle = document.querySelector("#mobileToggle");
+    const navLinks = document.querySelector("#navLinks");
+    const siteHeader = document.querySelector("#siteHeader");
+
+    const icons = {
+      inbox: '<svg viewBox="0 0 24 24"><path d="M4 4h16v12H4z"/><path d="M22 16l-4 4H6l-4-4"/><path d="M9 9h6"/></svg>',
+      chart: '<svg viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-5"/><path d="M12 16V8"/><path d="M16 16v-3"/></svg>',
+      bell: '<svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>',
+      report: '<svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-5"/></svg>',
+      shield: '<svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-5"/></svg>'
+    };
+
+    const previewSteps = [
+      {
+        title: "Scanning inbox",
+        step: "Step 1 of 5",
+        icon: icons.inbox,
+        heading: "Finding course certificates",
+        text: "Checking recent email for completion notices, provider receipts, and matching PDF certificates.",
+        log: ["Inbox connected", "Provider receipt found", "Certificate queued"]
+      },
+      {
+        title: "Logging credits",
+        step: "Step 2 of 5",
+        icon: icons.chart,
+        heading: "Updating completed hours",
+        text: "Matching provider, category, completion date, and license cycle before adding hours to the record.",
+        log: ["Ethics course matched", "3 hours added", "Certificate stored"]
+      },
+      {
+        title: "Checking gaps",
+        step: "Step 3 of 5",
+        icon: icons.bell,
+        heading: "Flagging missing requirements",
+        text: "Renewal is 30 days away. USPAP and one elective hour still need attention.",
+        log: ["30-day alert prepared", "8 hours remaining", "Course options attached"]
+      },
+      {
+        title: "Preparing report",
+        step: "Step 4 of 5",
+        icon: icons.report,
+        heading: "Building the audit packet",
+        text: "Generating a board-ready PDF with certificate attachments and credit totals.",
+        log: ["Report formatted", "8 certificates attached", "Ready to export"]
+      },
+      {
+        title: "Renewal ready",
+        step: "Step 5 of 5",
+        icon: icons.shield,
+        heading: "Compliance status protected",
+        text: "Your renewal record is organized, documented, and ready for review.",
+        log: ["All gaps closed", "Renewal packet complete", "Audit history saved"]
+      }
+    ];
+
+    function setTheme(theme) {
+      const isDark = theme === "dark";
+      body.classList.toggle("dark", isDark);
+      body.classList.toggle("light", !isDark);
+      themeLabel.textContent = isDark ? "Light" : "Dark";
+      themeToggle.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
+    }
+
+    function initTheme() {
+      const saved = localStorage.getItem("ceca-theme");
+      const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      setTheme(saved || preferred);
+      themeToggle.addEventListener("click", () => {
+        const next = body.classList.contains("dark") ? "light" : "dark";
+        localStorage.setItem("ceca-theme", next);
+        setTheme(next);
+      });
+    }
+
+    function initMobileMenu() {
+      mobileToggle.addEventListener("click", () => {
+        const open = navLinks.classList.toggle("open");
+        document.body.classList.toggle("menu-open", open);
+        mobileToggle.setAttribute("aria-expanded", String(open));
+      });
+      navLinks.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("open");
+          document.body.classList.remove("menu-open");
+          mobileToggle.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
+
+    function initHeader() {
+      const update = () => siteHeader.classList.toggle("scrolled", window.scrollY > 8);
+      update();
+      window.addEventListener("scroll", update, { passive: true });
+    }
+
+    function initReveal() {
+      const items = document.querySelectorAll(".reveal, .reveal-left, .reveal-right");
+      if (!("IntersectionObserver" in window)) {
+        items.forEach((item) => item.classList.add("visible"));
+        return;
+      }
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      items.forEach((item) => {
+        const rect = item.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) item.classList.add("visible");
+        observer.observe(item);
+      });
+    }
+
+    function initPreview() {
+      const title = document.querySelector("#previewTitle");
+      const step = document.querySelector("#previewStep");
+      const icon = document.querySelector("#previewIcon");
+      const heading = document.querySelector("#previewHeading");
+      const text = document.querySelector("#previewText");
+      const log = document.querySelector("#previewLog");
+      const progress = document.querySelector("#previewProgress");
+      const progressFill = document.querySelector("#previewProgressFill");
+      const progressText = document.querySelector("#previewProgressText");
+      let index = 0;
+
+      function render() {
+        const item = previewSteps[index];
+        const stepNumber = index + 1;
+        const progressPercent = `${stepNumber * 20}%`;
+        title.textContent = item.title;
+        step.textContent = item.step;
+        icon.innerHTML = item.icon;
+        heading.textContent = item.heading;
+        text.textContent = item.text;
+        log.innerHTML = item.log.map((entry) => `<span>${entry}</span>`).join("");
+        progress.setAttribute("aria-valuenow", String(stepNumber));
+        progressFill.style.width = progressPercent;
+        progressText.textContent = progressPercent;
+        index = (index + 1) % previewSteps.length;
+      }
+
+      render();
+      window.setInterval(render, 3600);
+    }
+
+    function initFeatureTabs() {
+      const tabs = document.querySelectorAll(".features-tab");
+      const panels = document.querySelectorAll(".feature-panel");
+
+      function activateTab(tab) {
+        const selected = tab.dataset.tab;
+        tabs.forEach((button) => {
+          const active = button === tab;
+          button.classList.toggle("active", active);
+          button.setAttribute("aria-selected", String(active));
+          button.setAttribute("tabindex", active ? "0" : "-1");
+        });
+        panels.forEach((panel) => {
+          const active = panel.id === `panel-${selected}`;
+          panel.classList.toggle("active", active);
+          panel.setAttribute("aria-hidden", String(!active));
+        });
+      }
+
+      tabs.forEach((tab) => {
+        tab.setAttribute("tabindex", tab.classList.contains("active") ? "0" : "-1");
+        tab.addEventListener("click", () => activateTab(tab));
+        tab.addEventListener("keydown", (event) => {
+          const currentIndex = Array.from(tabs).indexOf(tab);
+          let nextIndex = currentIndex;
+          if (event.key === "ArrowRight") nextIndex = (currentIndex + 1) % tabs.length;
+          if (event.key === "ArrowLeft") nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+          if (event.key === "Home") nextIndex = 0;
+          if (event.key === "End") nextIndex = tabs.length - 1;
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            activateTab(tab);
+            return;
+          }
+          if (nextIndex !== currentIndex) {
+            event.preventDefault();
+            const nextTab = tabs[nextIndex];
+            nextTab.focus();
+            activateTab(nextTab);
+          }
+        });
+      });
+    }
+
+    function initPricingToggle() {
+      const toggle = document.querySelector("#pricingToggle");
+      const priceAmounts = document.querySelectorAll(".price-amount");
+      let annual = false;
+
+      toggle.addEventListener("click", () => {
+        annual = !annual;
+        toggle.classList.toggle("annual", annual);
+        toggle.setAttribute("aria-pressed", String(annual));
+        priceAmounts.forEach((amount) => {
+          const value = annual ? amount.dataset.annual : amount.dataset.monthly;
+          amount.textContent = `$${value}`;
+        });
+      });
+    }
+
+    function initFaq() {
+      document.querySelectorAll(".faq-question").forEach((button) => {
+        button.addEventListener("click", () => {
+          const item = button.closest(".faq-item");
+          const open = item.classList.toggle("open");
+          button.setAttribute("aria-expanded", String(open));
+        });
+      });
+    }
+
+    function initSignupForm() {
+      const form = document.querySelector("#signupForm");
+      const success = document.querySelector("#formSuccess");
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        let valid = true;
+        form.querySelectorAll(".form-group").forEach((group) => {
+          const control = group.querySelector("input, select");
+          const ok = control.checkValidity();
+          group.classList.toggle("invalid", !ok);
+          valid = valid && ok;
+        });
+        if (valid) {
+          success.hidden = false;
+          form.reset();
+        } else {
+          success.hidden = true;
+          form.querySelector(".invalid input, .invalid select")?.focus();
+        }
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      initTheme();
+      initMobileMenu();
+      initHeader();
+      initReveal();
+      initPreview();
+      initFeatureTabs();
+      initPricingToggle();
+      initFaq();
+      initSignupForm();
+    });
+
+    /*
+      Documentation / deployment notes:
+      - Single-file GitHub Pages build: all CSS and JavaScript are inline in this HTML file.
+      - Assumes logo.png and zelle_qr.jpg are deployed in the same folder as index.html.
+      - The Zelle QR area uses zelle_qr.jpg for payment scanning.
+      - The logo strip uses neutral organization names until approved customer marks are available.
+      - Testimonials are intentionally omitted until real customer quotes are available.
+      - Live preview is a lightweight JavaScript simulation, not an embedded GIF or production app recording.
+    */
+  </script>
+</body>
+</html>
+
